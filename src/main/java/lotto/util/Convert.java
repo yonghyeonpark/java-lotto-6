@@ -15,7 +15,7 @@ public class Convert {
         }
     }
 
-    public static List<Integer> stringToIntegerListByNaturalOrder(String input) {
+    public static List<Integer> stringToIntegerList(String input) {
         List<Integer> list = new ArrayList<>();
         String[] split = input.split(",");
         for (String element : split) {
