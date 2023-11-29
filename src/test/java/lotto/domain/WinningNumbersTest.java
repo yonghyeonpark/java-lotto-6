@@ -12,7 +12,7 @@ public class WinningNumbersTest {
     @Test
     void should_ThrowException_When_LottoAndBonusNumberDuplicate() {
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> new WinningNumbers(List.of(1, 2, 3, 4, 5, 6), 1, null))
+                .isThrownBy(() -> new WinningNumbers(new Lotto(List.of(1, 2, 3, 4, 5, 6)), new BonusNumber(1), null))
                 .withMessageContaining("[ERROR]");
     }
 }
