@@ -15,6 +15,10 @@ public class LottoMachine {
         this.tickets = new ArrayList<>();
     }
 
+    public List<List<Integer>> getTickets() {
+        return tickets;
+    }
+
     public List<List<Integer>> execute(int count) {
         for (int i = 0; i < count; i++) {
             executeOnce();
