@@ -10,11 +10,11 @@ public class WinningLotto {
     private final int bonusNumber;
     private final WinningResult winningResult;
 
-    public WinningLotto(List<Integer> winningNumbers, int bonusNumber) {
+    public WinningLotto(List<Integer> winningNumbers, int bonusNumber, WinningResult winningResult) {
         validateDuplicate(winningNumbers, bonusNumber);
         this.winningNumbers = winningNumbers;
         this.bonusNumber = bonusNumber;
-        this.winningResult = new WinningResult();
+        this.winningResult = winningResult;
     }
 
     private void validateDuplicate(List<Integer> numbers, int bonusNumber) {

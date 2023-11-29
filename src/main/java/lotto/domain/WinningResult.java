@@ -1,14 +1,13 @@
 package lotto.domain;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class WinningResult {
 
     private final Map<Rank, Integer> winningResult;
 
-    public WinningResult() {
-        this.winningResult = new HashMap<>();
+    public WinningResult(Map<Rank, Integer> winningResult) {
+        this.winningResult = winningResult;
         setUp();
     }
 
