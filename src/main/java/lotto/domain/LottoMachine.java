@@ -7,6 +7,8 @@ import lotto.util.Sort;
 
 public class LottoMachine {
 
+    private static final String NEW_LINE = "\n";
+
     private final List<List<Integer>> tickets;
 
     public LottoMachine() {
@@ -30,5 +32,15 @@ public class LottoMachine {
         for (List<Integer> ticket : tickets) {
             Sort.naturalOrder(ticket);
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (List<Integer> ticket : tickets) {
+            stringBuilder.append(ticket)
+                    .append(NEW_LINE);
+        }
+        return stringBuilder.toString();
     }
 }
