@@ -24,23 +24,43 @@ public class WinningResult {
         return winningResult;
     }
 
-    public void addFirstPlace() {
+    public void judgeRank(int matchingCount, boolean hasMatchingBonusNumber) {
+        if (matchingCount == Rank.FIRST_PLACE.getMatchingCount()) {
+            addFirstPlace();
+        }
+        if (matchingCount == Rank.SECOND_PLACE.getMatchingCount()) {
+            if (hasMatchingBonusNumber) {
+                addSecondPlace();
+            }
+            if (!hasMatchingBonusNumber) {
+                addThirdPlace();
+            }
+        }
+        if (matchingCount == Rank.FOURTH_PLACE.getMatchingCount()) {
+            addFourthPlace();
+        }
+        if (matchingCount == Rank.FIFTH_PLACE.getMatchingCount()) {
+            addFifthPlace();
+        }
+    }
+
+    private void addFirstPlace() {
         winningResult.put(Rank.FIRST_PLACE, winningResult.get(Rank.FIRST_PLACE) + 1);
     }
 
-    public void addSecondPlace() {
+    private void addSecondPlace() {
         winningResult.put(Rank.SECOND_PLACE, winningResult.get(Rank.SECOND_PLACE) + 1);
     }
 
-    public void addThirdPlace() {
+    private void addThirdPlace() {
         winningResult.put(Rank.THIRD_PLACE, winningResult.get(Rank.THIRD_PLACE) + 1);
     }
 
-    public void addFourthPlace() {
+    private void addFourthPlace() {
         winningResult.put(Rank.FOURTH_PLACE, winningResult.get(Rank.FOURTH_PLACE) + 1);
     }
 
-    public void addFifthPlace() {
+    private void addFifthPlace() {
         winningResult.put(Rank.FIFTH_PLACE, winningResult.get(Rank.FIFTH_PLACE) + 1);
     }
 }
