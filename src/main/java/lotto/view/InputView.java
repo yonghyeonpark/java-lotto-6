@@ -7,7 +7,7 @@ import lotto.util.Convert;
 
 public class InputView {
 
-    public int readInputMoney() {
+    public int readPurchaseMoney() {
         return Convert.stringToInt(readLine());
     }
 
