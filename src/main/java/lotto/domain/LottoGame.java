@@ -6,6 +6,8 @@ import java.util.Map;
 
 public class LottoGame {
 
+    private static final String RATE_OF_RETURN_FORMAT = "#,##0.0%";
+
     private final PurchaseMoney purchaseMoney;
     private final WinningNumbers winningNumbers;
     private final WinningResult winningResult;
@@ -25,7 +27,7 @@ public class LottoGame {
     }
 
     public String calculateRateOfReturn() {
-        DecimalFormat decimalFormat = new DecimalFormat("#,##0.0%");
+        DecimalFormat decimalFormat = new DecimalFormat(RATE_OF_RETURN_FORMAT);
         double rateOfReturn = (double) calculateTotalPrizeMoney() / (double) purchaseMoney.getPurchaseMoney();
         return decimalFormat.format(rateOfReturn);
     }

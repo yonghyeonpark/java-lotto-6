@@ -7,6 +7,9 @@ import lotto.util.Sort;
 
 public class LottoMachine {
 
+    private static final int LOTTO_NUMBER_MIN = 1;
+    private static final int LOTTO_NUMBER_MAX = 45;
+    private static final int COUNT = 6;
     private static final String NEW_LINE = "\n";
 
     private final List<List<Integer>> tickets;
@@ -26,7 +29,7 @@ public class LottoMachine {
     }
 
     private void executeOnce() {
-        List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
+        List<Integer> numbers = Randoms.pickUniqueNumbersInRange(LOTTO_NUMBER_MIN, LOTTO_NUMBER_MAX, COUNT);
         tickets.add(Sort.naturalOrder(numbers));
     }
 

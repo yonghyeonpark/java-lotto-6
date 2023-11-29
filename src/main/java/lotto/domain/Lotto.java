@@ -4,6 +4,9 @@ import java.util.List;
 
 public class Lotto {
 
+    private static final int LOTTO_NUMBER_MIN = 1;
+    private static final int LOTTO_NUMBER_MAX = 45;
+    private static final int LOTTO_SIZE = 6;
     private static final String LOTTO_NUMBER_SIZE_ERROR_MESSAGE = "[ERROR] 로또 번호는 6개입니다.";
     private static final String LOTTO_NUMBER_RANGE_ERROR_MESSAGE = "[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.";
     private static final String LOTTO_NUMBER_DUPLICATE_ERROR_MESSAGE = "[ERROR] 로또 번호는 중복될 수 없습니다.";
@@ -22,7 +25,7 @@ public class Lotto {
     }
 
     private void validateSize(List<Integer> numbers) {
-        if (numbers.size() != 6) {
+        if (numbers.size() != LOTTO_SIZE) {
             throw new IllegalArgumentException(LOTTO_NUMBER_SIZE_ERROR_MESSAGE);
         }
     }
@@ -30,7 +33,7 @@ public class Lotto {
     // TODO: 추가 기능 구현
     private void validateRange(List<Integer> numbers) {
         for (int number : numbers) {
-            if (number > 45 || number < 1) {
+            if (number > LOTTO_NUMBER_MAX || number < LOTTO_NUMBER_MIN) {
                 throw new IllegalArgumentException(LOTTO_NUMBER_RANGE_ERROR_MESSAGE);
             }
         }

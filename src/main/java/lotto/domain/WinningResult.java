@@ -5,6 +5,9 @@ import java.util.Map;
 
 public class WinningResult {
 
+    private static final int INITIAL_VALUE = 0;
+    private static final int INCREMENTAL_VALUE = 1;
+    private static final int ONE = 1;
     private static final String PRIZE_MONEY_FORMAT = "(#,###원)";
     private static final String SPACE = " ";
     private static final String SPACE_DASH_SPACE = " - ";
@@ -19,11 +22,11 @@ public class WinningResult {
     }
 
     private void setUp() {
-        winningResult.put(Rank.FIRST_PLACE, 0);
-        winningResult.put(Rank.SECOND_PLACE, 0);
-        winningResult.put(Rank.THIRD_PLACE, 0);
-        winningResult.put(Rank.FOURTH_PLACE, 0);
-        winningResult.put(Rank.FIFTH_PLACE, 0);
+        winningResult.put(Rank.FIRST_PLACE, INITIAL_VALUE);
+        winningResult.put(Rank.SECOND_PLACE, INITIAL_VALUE);
+        winningResult.put(Rank.THIRD_PLACE, INITIAL_VALUE);
+        winningResult.put(Rank.FOURTH_PLACE, INITIAL_VALUE);
+        winningResult.put(Rank.FIFTH_PLACE, INITIAL_VALUE);
     }
 
     public Map<Rank, Integer> getWinningResult() {
@@ -51,23 +54,23 @@ public class WinningResult {
     }
 
     private void addFirstPlace() {
-        winningResult.put(Rank.FIRST_PLACE, winningResult.get(Rank.FIRST_PLACE) + 1);
+        winningResult.put(Rank.FIRST_PLACE, winningResult.get(Rank.FIRST_PLACE) + INCREMENTAL_VALUE);
     }
 
     private void addSecondPlace() {
-        winningResult.put(Rank.SECOND_PLACE, winningResult.get(Rank.SECOND_PLACE) + 1);
+        winningResult.put(Rank.SECOND_PLACE, winningResult.get(Rank.SECOND_PLACE) + INCREMENTAL_VALUE);
     }
 
     private void addThirdPlace() {
-        winningResult.put(Rank.THIRD_PLACE, winningResult.get(Rank.THIRD_PLACE) + 1);
+        winningResult.put(Rank.THIRD_PLACE, winningResult.get(Rank.THIRD_PLACE) + INCREMENTAL_VALUE);
     }
 
     private void addFourthPlace() {
-        winningResult.put(Rank.FOURTH_PLACE, winningResult.get(Rank.FOURTH_PLACE) + 1);
+        winningResult.put(Rank.FOURTH_PLACE, winningResult.get(Rank.FOURTH_PLACE) + INCREMENTAL_VALUE);
     }
 
     private void addFifthPlace() {
-        winningResult.put(Rank.FIFTH_PLACE, winningResult.get(Rank.FIFTH_PLACE) + 1);
+        winningResult.put(Rank.FIFTH_PLACE, winningResult.get(Rank.FIFTH_PLACE) + INCREMENTAL_VALUE);
     }
 
     @Override
@@ -83,7 +86,7 @@ public class WinningResult {
                     .append(COUNT_UNIT)
                     .append(NEW_LINE);
         }
-        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        stringBuilder.deleteCharAt(stringBuilder.length() - ONE);
         return stringBuilder.toString();
     }
 }
