@@ -21,7 +21,6 @@ public class Convert {
         for (String element : split) {
             list.add(stringToInt(element));
         }
-        Sort.naturalOrder(list);
         return list;
     }
 }
