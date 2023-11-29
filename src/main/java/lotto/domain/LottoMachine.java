@@ -19,23 +19,15 @@ public class LottoMachine {
         return tickets;
     }
 
-    public List<List<Integer>> execute(int count) {
+    public void execute(int count) {
         for (int i = 0; i < count; i++) {
             executeOnce();
         }
-        sortTickets();
-        return tickets;
     }
 
     private void executeOnce() {
         List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
-        tickets.add(numbers);
-    }
-
-    private void sortTickets() {
-        for (List<Integer> ticket : tickets) {
-            Sort.naturalOrder(ticket);
-        }
+        tickets.add(Sort.naturalOrder(numbers));
     }
 
     @Override
