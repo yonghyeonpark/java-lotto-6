@@ -1,6 +1,8 @@
 package lotto.domain;
 
+import java.text.DecimalFormat;
 import java.util.List;
+import java.util.Map;
 
 public class LottoGame {
 
@@ -20,5 +22,20 @@ public class LottoGame {
 
     public String getWinningResult() {
         return winningResult.toString();
+    }
+
+    public String calculateRateOfReturn() {
+        DecimalFormat decimalFormat = new DecimalFormat("#,##0.0%");
+        double rateOfReturn = (double) calculateTotalPrizeMoney() / (double) purchaseMoney.getPurchaseMoney();
+        return decimalFormat.format(rateOfReturn);
+    }
+
+    private int calculateTotalPrizeMoney() {
+        int totalPrizeMoney = 0;
+        Map<Rank, Integer> result = winningResult.getWinningResult();
+        for (Rank rank : Rank.values()) {
+            totalPrizeMoney += (rank.getPrizeMoney() * result.get(rank));
+        }
+        return totalPrizeMoney;
     }
 }
