@@ -1,8 +1,15 @@
 package lotto.domain;
 
+import java.text.DecimalFormat;
 import java.util.Map;
 
 public class WinningResult {
+
+    private static final String PRIZE_MONEY_FORMAT = "(#,###원)";
+    private static final String SPACE = " ";
+    private static final String SPACE_DASH_SPACE = " - ";
+    private static final String COUNT_UNIT = "개";
+    private static final String NEW_LINE = "\n";
 
     private final Map<Rank, Integer> winningResult;
 
@@ -61,5 +68,22 @@ public class WinningResult {
 
     private void addFifthPlace() {
         winningResult.put(Rank.FIFTH_PLACE, winningResult.get(Rank.FIFTH_PLACE) + 1);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        DecimalFormat decimalFormat = new DecimalFormat(PRIZE_MONEY_FORMAT);
+        for (Rank rank : Rank.values()) {
+            stringBuilder.append(rank.getDetail())
+                    .append(SPACE)
+                    .append(decimalFormat.format(rank.getPrizeMoney()))
+                    .append(SPACE_DASH_SPACE)
+                    .append(winningResult.get(rank))
+                    .append(COUNT_UNIT)
+                    .append(NEW_LINE);
+        }
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        return stringBuilder.toString();
     }
 }
