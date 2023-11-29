@@ -6,13 +6,13 @@ public class WinningLotto {
 
     private static final String LOTTO_AND_BONUS_DUPLICATE_ERROR_MESSAGE = "[ERROR] 로또 번호와 보너스 번호는 중복될 수 없습니다.";
 
-    private final List<Integer> numbers;
+    private final List<Integer> winningNumbers;
     private final int bonusNumber;
     private final WinningResult winningResult;
 
-    public WinningLotto(List<Integer> numbers, int bonusNumber) {
-        validateDuplicate(numbers, bonusNumber);
-        this.numbers = numbers;
+    public WinningLotto(List<Integer> winningNumbers, int bonusNumber) {
+        validateDuplicate(winningNumbers, bonusNumber);
+        this.winningNumbers = winningNumbers;
         this.bonusNumber = bonusNumber;
         this.winningResult = new WinningResult();
     }
@@ -27,7 +27,7 @@ public class WinningLotto {
         int matchingCount = 0;
         boolean hasMatchingBonusNumber = false;
         for (int number : ticket) {
-            if (numbers.contains(number)) {
+            if (winningNumbers.contains(number)) {
                 matchingCount++;
             }
             if (bonusNumber == number) {
