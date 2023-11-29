@@ -28,6 +28,10 @@ public class PurchaseMoney {
         }
     }
 
+    public int getPurchaseMoney() {
+        return purchaseMoney;
+    }
+
     public int getPurchaseCount() {
         return purchaseMoney / PURCHASE_MONEY_UNIT;
     }
