@@ -6,15 +6,15 @@ public class BonusNumber {
     private static final int BONUS_NUMBER_RANGE_MIN = 1;
     private static final String BONUS_NUMBER_RANGE_ERROR_MESSAGE = "[ERROR] 보너스 번호는 1부터 45 사이의 숫자여야 합니다.";
 
-    private final int bonusNumber;
+    private final int number;
 
     public BonusNumber(int bonusNumber) {
         validateRange(bonusNumber);
-        this.bonusNumber = bonusNumber;
+        this.number = bonusNumber;
     }
 
-    public int getBonusNumber() {
-        return bonusNumber;
+    public int getNumber() {
+        return number;
     }
 
     private void validateRange(int bonusNumber) {
